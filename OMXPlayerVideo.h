@@ -100,6 +100,7 @@ public:
   void SetLayer(int layer);
   void SetVideoRect(const CRect& SrcRect, const CRect& DestRect);
   void SetVideoRect(int aspectMode);
+  bool hasAborted();
 
 };
 #endif

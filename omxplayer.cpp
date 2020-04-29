@@ -1796,6 +1796,8 @@ int main(int argc, char *argv[])
       }
       if(m_player_video.AddPacket(m_omx_pkt))
         m_omx_pkt = NULL;
+      else if (m_player_video.hasAborted())
+        goto do_exit;
       else
         OMXClock::OMXSleep(10);
     }
