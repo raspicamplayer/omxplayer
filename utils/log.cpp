@@ -138,7 +138,7 @@ void CLog::Log(int loglevel, const char *format, ... )
   pthread_mutex_unlock(&m_log_mutex);
 }
 
-bool CLog::Init(const char* path)
+bool CLog::Init(const char* path, const char* prefix)
 {
   pthread_mutex_init(&m_log_mutex, NULL);
   if (m_logLevel > LOG_LEVEL_NONE) { 
@@ -146,8 +146,8 @@ bool CLog::Init(const char* path)
   {
     CStdString strLogFile, strLogFileOld;
 
-    strLogFile.Format("%s/omxplayer.log", path);
-    strLogFileOld.Format("%s/omxplayer.old.log", path);
+    strLogFile.Format("%s/%s_omxplayer.log", path, prefix);
+    strLogFileOld.Format("%s/%s_omxplayer.old.log", path, prefix);
 
     struct stat info;
     if (stat(strLogFileOld.c_str(),&info) == 0 &&

@@ -992,7 +992,7 @@ int main(int argc, char *argv[])
   }
   if(m_gen_log) {
     CLog::SetLogLevel(LOG_LEVEL_DEBUG);
-    CLog::Init("./");
+    CLog::Init("./", m_dbus_name.c_str());
   } else {
     CLog::SetLogLevel(LOG_LEVEL_NONE);
   }
